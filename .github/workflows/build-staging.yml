@@ -56,14 +56,14 @@ jobs:
       # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Helm tool installer
+      - name: Install Helm
         uses: Azure/setup-helm@v1
         with:
           # Version of helm
           version: v3.3.1
           
-      - name: Kubernetes Set Context
-        uses: Azure/k8s-set-context@v1
+      - name: Get AKS Credentials
+        uses: Azure/aks-set-context@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           # Azure resource group name
